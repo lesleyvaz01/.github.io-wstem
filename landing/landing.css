@@ -23,13 +23,13 @@ li a{
 }
 
 li a:hover{
-    background-color: darkred;
-    color:#C3AB77;
+    background-color: fffcd6;
+    color: dark red;
 }
 
 li a:active{
-    background-color: yellow;
-    color: black;
+    background-color: fffcd6;
+    color: red;
 }
 
 @media screen and (max-width: 800px){
