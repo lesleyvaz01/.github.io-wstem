@@ -23,8 +23,8 @@ li a{
 }
 
 li a:hover{
-    background-color: fffcd6;
-    color: dark red;
+    background-color: #FFFCD6;
+    color: #CA6873;
 }
 
 li a:active{
