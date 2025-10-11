@@ -6,7 +6,7 @@ body{
 ul{
     list-style: none;   /* get rid of bullet */
     display:flex;
-    background-color: pink;
+    background-color: #f6a4a4;
     margin: 0;
     padding: 10px 0px;
     font-family: "Crafty Girls", cursive;
