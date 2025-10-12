@@ -3,91 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women in Stem</title>
-    <link rel="stylesheet" href="../landing/landing.css">
-
-    <!-- Header: DM Serif font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Crafty+Girls&family=Montez&display=swap" rel="stylesheet">
+    <title>Angler Creations - Illuminate Your Curiosity</title>
     
-    <!-- Subheader: Averia Serif Libre -->
+    <!-- Better Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Serif+Display:ital@0;1&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Archivo:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Paragraph: Quattrocentro-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        body {
+            margin: 0;
+            background-color: #000000;
+            overflow-x: hidden;
+        }
 
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(246, 164, 164, 0.95);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            padding: 20px 35px;
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 11pt;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #FFFCD6;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 252, 214, 0.2);
+            color: #FFFCD6;
+        }
+
+        nav a:hover::after {
+            width: 60%;
+        }
+
+        /* Header with Centered Angler */
+        .header {
+            background: linear-gradient(180deg, #0A7BC4 0%, #0968A8 100%);
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        #logo {
+            height: 280px;
+            width: auto;
+            max-width: 90%;
+            display: inline-block;
+            /*animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));*/
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Righteous', cursive;
+            font-size: 56pt;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 36pt;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            font-size: 24pt;
+            margin: 0 0 15px 0;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 400;
+            font-size: 16pt;
+            line-height: 1.7;
+            color: #FFF2F2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #0968A8 0%, #085A8F 100%);
+            text-align: center;
+            padding: 100px 30px;
+            position: relative;
+        }
+
+        .hero h1 {
+            color: #FFF2F2;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20pt;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: linear-gradient(180deg, #085A8F 0%, #064680 100%);
+            padding: 100px 30px;
+        }
+
+        .welcome-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .welcome-content h2 {
+            color: #FFF2F2;
+            margin-bottom: 30px;
+        }
+
+        .welcome-content p {
+            margin-bottom: 20px;
+            font-size: 18pt;
+        }
+
+        /* Features Grid */
+        .features {
+            background: linear-gradient(180deg, #064680 0%, #053A6B 100%);
+            padding: 100px 30px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 242, 242, 0.1) 0%, rgba(195, 171, 119, 0.05) 100%);
+            border: 2px solid rgba(255, 242, 242, 0.15);
+            border-radius: 15px;
+            padding: 45px 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #C3AB77 0%, #f6a4a4 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(255, 242, 242, 0.15) 0%, rgba(195, 171, 119, 0.1) 100%);
+            border-color: rgba(195, 171, 119, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #C3AB77 0%, #f6a4a4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+            font-size: 32pt;
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(195, 171, 119, 0.3);
+        }
+
+        .feature-card h3 {
+            color: #C3AB77;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .feature-card p {
+            color: rgba(255, 242, 242, 0.9);
+            text-align: center;
+            font-size: 15pt;
+            line-height: 1.6;
+        }
+
+        /* CTA Sections */
+        .cta-section {
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        .getting-started {
+            background: linear-gradient(180deg, #053A6B 0%, #042D56 100%);
+        }
+
+        .projects-preview {
+            background: linear-gradient(180deg, #042D56 0%, #022038 100%);
+        }
+
+        .final-cta {
+            background: linear-gradient(180deg, #022038 0%, #000509 100%);
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(195, 171, 119, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(195, 171, 119, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 45% 85%, rgba(255, 242, 242, 0.05) 0%, transparent 40%);
+            animation: shimmer 6s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        .cta-section h2 {
+            color: #FFF2F2;
+            margin-bottom: 25px;
+        }
+
+        .cta-section p {
+            max-width: 750px;
+            margin: 0 auto 35px auto;
+            font-size: 18pt;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            font-size: 15pt;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFF2F2 0%, #DCCFBF 100%);
+            color: #1D0F14;
+            box-shadow: 0 5px 20px rgba(255, 242, 242, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 242, 242, 0.5);
+            background: linear-gradient(135deg, #FFFCD6 0%, #C3AB77 100%);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #691221 0%, #CA6873 100%);
+            color: #FFF2F2;
+            box-shadow: 0 5px 20px rgba(105, 18, 33, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(105, 18, 33, 0.6);
+            background: linear-gradient(135deg, #CA6873 0%, #f6a4a4 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 36pt; }
+            h2 { font-size: 28pt; }
+            h3 { font-size: 20pt; }
+            p { font-size: 14pt; }
+            
+            #logo { height: 200px; }
+            
+            nav a {
+                padding: 15px 20px;
+                font-size: 10pt;
+            }
+            
+            .hero, .welcome-section, .features, .cta-section {
+                padding: 60px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="../landing/landing.html">Home</a></li>
-            <li><a href="../about/about.html">About</a></li>
-            <li><a href="../resources/resources.html">Resources</a></li>
-            <li><a href="../projects/projects.html">Projects</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#projects">Projects</a></li>
         </ul>
     </nav>
+
     <div class="header">
-        <img src="../landing/photos/angler-creations.gif" id="logo" alt="fish with lightbulb on its head">
-        
-    </div>
-    
-
-        
-
-        
-        
-
-        <div class="guildshop">
-            <h1 class="whitetext">Welcome<br>To Angler Creations</h1>
-            
-            <p>Dive into the world of circuits, soldering, and electronics! </p>
-            <a href="../about/about.html"><button class="buttonlight">Learn More</button></a>
-        </div>
-
-        <div class="faq">
-            <h1>First-Timer’s Guide</h1><br>
-            <p class="blacktext">First time at the Symphony? Not sure what to see or where to start? Learn about the Colorado Symphony experience, the performance, and the music, with frequently asked questions specifically for Symphony newcomers.</p>
-            <a href="../faq/faq.html"><button class="buttondark">Start Here</button></a>
-        </div>
-
-        <div class="content">
-            <h1 class="rosintext">Family Series</h1>
-            <h2 class="rosintext">HalfNotes</h2>
-            <p>Held in the Bach Room of Boettcher Concert Hall, these activities take place prior to specific family-friendly concerts throughout the season. Activities are individually curated for each concert and will feature rotating activities like concert-related crafts!</p>
-            <a href="../schedule/schedule.html"><button class="buttonlight">View HalfNotes Concerts</button></a>
-            
-            <h1 class="rosintext">Classics Series</h1>
-            <h2 class="rosintext">Preludes</h2>
-            <p>Preludes take place at 6:30 p.m. (FRI & SAT) and 12 p.m. (SUN) in Boettcher Concert Hall, before every Classics performance, and are included with your concert ticket. Dive deeper into the music, learn about planning a concert, take a peak behind the curtain, and more! For details on a specific event date, please visit the individual performance web page or contact us at tickets@coloradosymphony.org.</p>
-            
-            <h2 class="rosintext">Talkbacks</h2>
-            <p>Following select Classics performances, enjoy a special 15-minute, post-concert discussion with the guest artist or conductor. Talkbacks take place in Boettcher Concert Hall and are included with your concert ticket. To find out which concerts include a Talkback, check the individual performance web page or contact us at tickets@coloradosymphony.org.</p>
-                <a href="../schedule/schedule.html"><button class="buttonlight">View All Classics</button></a>
-        </div>
-
-        <div class="communityed">
-            <h1>Explore Our Community Education Programs</h1>
-            <p class="blacktext">Engage your students with immersive, educational programming including youth concerts and open rehearsals with your Colorado Symphony.</p>
-        </div>
-
-        <div class="beforeafter">
-            <h1>Before & After the Concert</h1>
-            <p class="blacktext">Your Colorado Symphony offers pre and post-concert events to enhance your performance experience, including Preludes, Talkbacks, and HalfNotes activities.</p>
-        </div>
-
-        <div class="rockspic">
-            <img src="FY24-Season-Header-Dragon-1920x400-2.jpg" id="conductpic" alt="conductor waiving baton while standing at Red Rocks">
-        </div> 
-
+        <img src="../landing/photos/angler-creations.gif" id="logo" alt="Angler fish with lightbulb - Illuminate your curiosity">
     </div>
 
-    <div class="natureflute">
-        <img src="Catherine-Jason-Sinn-1920x400-1.jpg" id="flutepic" alt="Catherine Sinn playing flute in the forest">
-    </div> 
+    <div class="hero">
+        <h1>Welcome to Angler Creations</h1>
+        <p>Dive deep into the brilliant world of electronics, circuits, and creative making. Light up your curiosity and discover the spark within.</p>
+        <a href="#about" class="btn btn-primary">Start Your Journey</a>
+    </div>
+
+    <div class="welcome-section">
+        <div class="welcome-content">
+            <h2>What's Angler Creations?</h2>
+            <p>Angler Creations is your underwater cave of wonders for learning electronics, soldering, circuits, and creative STEM projects </p>
+            <p>No boring textbooks. No stuffy classrooms. Just fun, hands-on learning that sparks your imagination.</p>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">V</div>
+                <h3>Video Tutorials</h3>
+                <p>Watch step-by-step guides on soldering, circuit building, and electronics basics. Learn at your own pace with clear, engaging explanations.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">P</div>
+                <h3>Creative Projects</h3>
+                <p>Build LED lanterns, music boxes, robots, and more. Each project is designed to teach you new skills while creating something awesome.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">R</div>
+                <h3>Resources & Tools</h3>
+                <p>Access comprehensive guides, safety tips, component libraries, and tool recommendations. Everything you need to become a confident maker.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section getting-started">
+        <h2>New to Electronics?</h2>
+        <p>No problem. Everyone starts somewhere. Whether you've never held a soldering iron or you're ready to build your first robot, we've got beginner-friendly guides just for you.</p>
+        <a href="#resources" class="btn btn-primary">Beginner's Guide</a>
+        <a href="#projects" class="btn btn-secondary">Browse Projects</a>
+    </div>
+
+    <div class="cta-section projects-preview">
+        <h2>Featured Projects</h2>
+        <p>From glowing jewelry to DIY speakers, discover projects that combine creativity with circuits. Each one comes with a video tutorial, materials list, and step-by-step instructions.</p>
+        <a href="#projects" class="btn btn-primary">See All Projects</a>
+    </div>
+
+    <div class="cta-section final-cta">
+        <h2>Ready to Illuminate Your Ideas?</h2>
+        <p>Join the Angler Creations community and start building amazing things. Your next great invention is waiting.</p>
+        <a href="#about" class="btn btn-primary">Learn More About Us</a>
+    </div>
+
+    <script>
+        // Make the angler fish pause periodically
+        const logo = document.getElementById('logo');
+        let isPaused = false;
+
+        setInterval(() => {
+            if (!isPaused) {
+                logo.style.animationPlayState = 'paused';
+                isPaused = true;
+                
+                setTimeout(() => {
+                    logo.style.animationPlayState = 'running';
+                    isPaused = false;
+                }, 2000);
+            }
+        }, 8000);
+    </script>
 </body>
 </html>
