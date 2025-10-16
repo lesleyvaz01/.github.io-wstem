@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angler Creations - Illuminate Your Curiosity</title>
+    <title>Glow Lab</title>
     
     <!-- Better Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,42 +79,9 @@
             width: 60%;
         }
 
-        /* Header with Centered Angler */
+        /* Combined Header + Hero Section */
         .header {
-            background: linear-gradient(180deg, #0A7BC4 0%, #0968A8 100%);
-            text-align: center;
-            padding: 80px 20px 60px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        #logo {
-            height: 280px;
-            width: auto;
-            max-width: 90%;
-            display: inline-block;
-            /*animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));*/
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            display: none;
         }
 
         /* Typography */
@@ -148,18 +115,45 @@
             color: #FFF2F2;
         }
 
-        /* Hero Section */
+        /* Hero Section with Integrated Logo */
         .hero {
-            background: linear-gradient(180deg, #0968A8 0%, #085A8F 100%);
+            background: linear-gradient(180deg, #0A7BC4 0%, #085A8F 100%);
             text-align: center;
-            padding: 100px 30px;
+            padding: 60px 30px 100px 30px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background-image: url('../landing/photos/angler-creations.gif');
+            background-size: 150px;
+            background-repeat: space;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        #logo {
+            height: 320px;
+            width: auto;
+            max-width: 90%;
+            display: block;
+            margin: 0 auto 40px auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
             color: #FFF2F2;
             margin-bottom: 25px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .hero p {
@@ -168,6 +162,13 @@
             margin: 0 auto 40px auto;
             opacity: 0.95;
             font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .btn {
+            position: relative;
+            z-index: 1;
         }
 
         /* Welcome Section */
@@ -192,7 +193,7 @@
             font-size: 18pt;
         }
 
-        /* Features Grid */
+        /* Features Grid - Kid-Friendly Crafty Style */
         .features {
             background: linear-gradient(180deg, #064680 0%, #053A6B 100%);
             padding: 100px 30px;
@@ -203,76 +204,68 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .feature-card {
-            background: linear-gradient(135deg, rgba(255, 242, 242, 0.1) 0%, rgba(195, 171, 119, 0.05) 100%);
-            border: 2px solid rgba(255, 242, 242, 0.15);
-            border-radius: 15px;
-            padding: 45px 35px;
-            transition: all 0.4s ease;
+            background: #FFF2F2;
+            border: 4px dashed #C3AB77;
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+            transform: rotate(-1deg);
         }
 
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #C3AB77 0%, #f6a4a4 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+        .feature-card:nth-child(2) {
+            transform: rotate(1deg);
+        }
+
+        .feature-card:nth-child(3) {
+            transform: rotate(-0.5deg);
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            background: linear-gradient(135deg, rgba(255, 242, 242, 0.15) 0%, rgba(195, 171, 119, 0.1) 100%);
-            border-color: rgba(195, 171, 119, 0.4);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
+            transform: rotate(0deg) translateY(-10px) scale(1.05);
+            box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.3);
+            border-color: #f6a4a4;
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #C3AB77 0%, #f6a4a4 100%);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #f6a4a4 0%, #CA6873 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 25px auto;
-            font-size: 32pt;
+            font-size: 40pt;
             color: white;
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            box-shadow: 0 8px 20px rgba(195, 171, 119, 0.3);
+            font-family: 'Righteous', cursive;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+            border: 4px solid white;
         }
 
         .feature-card h3 {
-            color: #C3AB77;
+            color: #064680;
             text-align: center;
             margin-bottom: 18px;
         }
 
         .feature-card p {
-            color: rgba(255, 242, 242, 0.9);
+            color: #1D0F14;
             text-align: center;
             font-size: 15pt;
             line-height: 1.6;
         }
 
-        /* CTA Sections */
+        /* Sticker/Badge Style Sections */
         .cta-section {
             padding: 100px 30px;
             text-align: center;
+            position: relative;
         }
 
         .getting-started {
@@ -297,8 +290,7 @@
             bottom: 0;
             background-image: 
                 radial-gradient(circle at 15% 25%, rgba(195, 171, 119, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 75%, rgba(195, 171, 119, 0.06) 0%, transparent 40%),
-                radial-gradient(circle at 45% 85%, rgba(255, 242, 242, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 85% 75%, rgba(195, 171, 119, 0.06) 0%, transparent 40%);
             animation: shimmer 6s ease-in-out infinite;
         }
 
@@ -318,47 +310,54 @@
             font-size: 18pt;
         }
 
-        /* Buttons */
+        /* Fun Crafty Buttons */
         .btn {
             display: inline-block;
-            padding: 18px 40px;
+            padding: 20px 45px;
             margin: 10px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Archivo', sans-serif;
-            font-weight: 700;
-            font-size: 15pt;
-            letter-spacing: 0.5px;
+            border: 4px solid transparent;
+            border-radius: 50px;
+            font-family: 'Righteous', cursive;
+            font-size: 16pt;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
             position: relative;
             z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #FFF2F2 0%, #DCCFBF 100%);
-            color: #1D0F14;
-            box-shadow: 0 5px 20px rgba(255, 242, 242, 0.3);
+            background: #FFFCD6;
+            color: #064680;
+            border-color: #C3AB77;
+            box-shadow: 0 6px 0 #C3AB77, 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 242, 242, 0.5);
-            background: linear-gradient(135deg, #FFFCD6 0%, #C3AB77 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 0 #C3AB77, 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: #C3AB77;
+            color: white;
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #691221 0%, #CA6873 100%);
-            color: #FFF2F2;
-            box-shadow: 0 5px 20px rgba(105, 18, 33, 0.4);
+            background: #f6a4a4;
+            color: white;
+            border-color: #CA6873;
+            box-shadow: 0 6px 0 #CA6873, 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(105, 18, 33, 0.6);
-            background: linear-gradient(135deg, #CA6873 0%, #f6a4a4 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 0 #CA6873, 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: #CA6873;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #C3AB77, 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Responsive */
@@ -368,7 +367,10 @@
             h3 { font-size: 20pt; }
             p { font-size: 14pt; }
             
-            #logo { height: 200px; }
+            #logo { 
+                height: 220px;
+                margin-bottom: 30px;
+            }
             
             nav a {
                 padding: 15px 20px;
@@ -381,10 +383,15 @@
             
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             nav ul {
                 flex-wrap: wrap;
+            }
+
+            .feature-card {
+                transform: rotate(0deg);
             }
         }
     </style>
@@ -399,20 +406,17 @@
         </ul>
     </nav>
 
-    <div class="header">
-        <img src="../landing/photos/angler-creations.gif" id="logo" alt="Angler fish with lightbulb - Illuminate your curiosity">
-    </div>
-
     <div class="hero">
-        <h1>Welcome to Angler Creations</h1>
-        <p>Dive deep into the brilliant world of electronics, circuits, and creative making. Light up your curiosity and discover the spark within.</p>
+        <img src="../landing/photos/angler-creations.gif" id="logo" alt="Angler fish with lightbulb - Illuminate your curiosity">
+        <h1>Welcome to Glow Lab</h1>
+        <p>Dive deep into the brilliant world of electronics, circuits, and creative making.</p>
         <a href="#about" class="btn btn-primary">Start Your Journey</a>
     </div>
 
     <div class="welcome-section">
         <div class="welcome-content">
-            <h2>What's Angler Creations?</h2>
-            <p>Angler Creations is your underwater cave of wonders for learning electronics, soldering, circuits, and creative STEM projects </p>
+            <h2>What's Glow Lab?</h2>
+            <p>Glow Lab is your underwater cave of wonders for learning electronics, soldering, circuits, and creative STEM projects.</p>
             <p>No boring textbooks. No stuffy classrooms. Just fun, hands-on learning that sparks your imagination.</p>
         </div>
     </div>
@@ -420,19 +424,19 @@
     <div class="features">
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">V</div>
+                <div class="feature-icon">▶</div>
                 <h3>Video Tutorials</h3>
                 <p>Watch step-by-step guides on soldering, circuit building, and electronics basics. Learn at your own pace with clear, engaging explanations.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">P</div>
+                <div class="feature-icon">★</div>
                 <h3>Creative Projects</h3>
-                <p>Build LED lanterns, music boxes, robots, and more. Each project is designed to teach you new skills while creating something awesome.</p>
+                <p>Build LED lanterns, music boxes, robots, and more. Each project is designed to teach you new skills while creating something fun and awesome.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">R</div>
+                <div class="feature-icon">◆</div>
                 <h3>Resources & Tools</h3>
                 <p>Access comprehensive guides, safety tips, component libraries, and tool recommendations. Everything you need to become a confident maker.</p>
             </div>
@@ -454,26 +458,8 @@
 
     <div class="cta-section final-cta">
         <h2>Ready to Illuminate Your Ideas?</h2>
-        <p>Join the Angler Creations community and start building amazing things. Your next great invention is waiting.</p>
+        <p>Join the Glow Lab community and start building amazing things. Your next great invention is waiting.</p>
         <a href="#about" class="btn btn-primary">Learn More About Us</a>
     </div>
-
-    <script>
-        // Make the angler fish pause periodically
-        const logo = document.getElementById('logo');
-        let isPaused = false;
-
-        setInterval(() => {
-            if (!isPaused) {
-                logo.style.animationPlayState = 'paused';
-                isPaused = true;
-                
-                setTimeout(() => {
-                    logo.style.animationPlayState = 'running';
-                    isPaused = false;
-                }, 2000);
-            }
-        }, 8000);
-    </script>
 </body>
 </html>
